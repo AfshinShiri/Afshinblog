@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>LOGIN</h3>
+  <strong>اگر عضو نیستید لطفا</strong>
+  <strong>برای ورود ثبت نام کنید</strong>
+<form class="site-form" action="{% url 'accounts:login' %}" method="post">
+
+  {{form}}
+  {% csrf_token %}
+  {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{request.GET.next}}">
+  {% endif %}
+  <button type="submit" name="submit">ورود</button>
+  <a class="sabtenam" href="{% url 'accounts:signup' %}">ثبت نام</a>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+      ARTICLE
+
+{% endblock %}
+
+
+
+    {% block content%}
+
+
+    <h1>دست نویس</h1>
+        <h3><a id="createlink" href="{% url 'articles:create' %}"><button id="benevis">تو برام بنویس!!!</button></a></h3>
+        <div class="articles" >
+    {% for article in articles %}
+        <div class="article">
+    <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></h2>
+      <p>{{article.snippet}}</p>
+      <p>{{article.date}}</p>
+        <p class="author">{{ article.author.username }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

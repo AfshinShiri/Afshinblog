@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<h1>ARTICLE creating</h1>
+<form class="site-create" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+  {{form}}
+  {% csrf_token %}
+  <button class="bcreate" type="submit" name="button">  ثبت   </button>
+</form>
+    <script src="{% static 'slugify.js' %}"></script>
+{% endblock %}

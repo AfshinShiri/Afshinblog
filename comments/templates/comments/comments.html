@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}
+  comments
+{% endblock %}
+
+
+
+{% block content %}
+<h1>نظرات</h1>
+
+<form id="cont" class="site-create" action="{% url 'comments:comments' %}" method="post">
+  {{form}}
+  {% csrf_token %}
+  <button class="bcreate" type="submit" name="button">  ثبت   </button>
+
+{% endblock %}
